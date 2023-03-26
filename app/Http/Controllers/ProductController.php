@@ -83,7 +83,7 @@ class ProductController extends Controller
      $validation = Validator::make($request->all(), [
       'file' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
      ]);
-     if($validation->passes())
+     if(!$validation->fails())
      {
       $image = $request->file('file');
       $new_name = $image->getClientOriginalName();
